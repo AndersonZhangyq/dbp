@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>用户中心</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    li.active {
+        background-color: #eee;
+        border-left: 2px solid #091FF5;
+    }
+    
+    th,
+    .table>tbody>tr>td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="./index.html"><img src="./logo.png" class="navbar-brand" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a href="./book.html">订购车票</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./pending.html">未完成订单</a></li>
+                            <li><a href="./finished.html">已完成订单</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="./info.html">查看个人信息</a></li>
+                            <li><a href="./security.html">账户安全管理</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-xs-3 column">
+                <div class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            订单管理
+                        </div>
+                        <ul class="nav nav-stacked">
+                            <li role="presentation"><a href="./pending.html" style="color: black">未完成订单</a></li>
+                            <li role="presentation"><a href="./finished.html" style="color: black">已完成订单</a></li>
+                            <li class="panel-primary">
+                                <div class="panel-heading">
+                                    个人信息
+                                </div>
+                            </li>
+                            <li role="presentation" class="active"><a href="./info.html" style="color: black">查看个人信息</a></li>
+                            <li role="presentation"><a href="./security.html" style="color: black">账户安全管理</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-9 column" style="padding-right: 16px">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        查看个人信息
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-xs-3"></div>
+                        <div class="col-xs-6">
+                            <div class="form-horizontal" id="info_form" style="display: none">
+                                <div class="form-group">
+                                    <label for="userName" class="col-xs-3 control-label"><span style="color: red">* </span>姓名</label>
+                                    <div class="col-xs-9">
+                                        <p class="form-control-static">张逸清</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender" class="col-xs-3 control-label"><span style="color: red">* </span>性别</label>
+                                    <div class="col-xs-9">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="gender" id="male" value="1" checked> 男
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="gender" id="female" value="2"> 女
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="region" class="col-xs-3 control-label">国家/地区</label>
+                                    <div class="col-xs-9">
+                                        <p class="form-control-static">中国 CHINA</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ID_type" class="col-xs-3 control-label"><span style="color: red">* </span>证件类型</label>
+                                    <div class="col-xs-9">
+                                        <p class="form-control-static">二代身份证</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ID_number" class="col-xs-3 control-label"><span style="color: red">* </span>证件号码</label>
+                                    <div class="col-xs-9">
+                                        <p class="form-control-static">******************</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="born_date" class="col-xs-3 control-label">出生日期</label>
+                                    <div class="col-xs-9">
+                                        <input type="text" class="form-control form-datetime" id="born_date" value="1997-04-13">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="check_status" class="col-xs-3 control-label">核验状态</label>
+                                    <div class="col-xs-9">
+                                        <p class="form-control-static" style="color :blue">已通过</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-info btn-block center-block" style="width:40%">提交修改</button>
+                                </div>
+                            </div>
+                            <div class="form-horizontal" id="info_plain" style="display: block">
+                                <div class="form-group">
+                                    <label for="userName" class="col-xs-3 control-label"><span style="color: red">* </span>姓名</label>
+                                    <div class="col-xs-9">
+                                        <p class="form-control-static">张逸清</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender" class="col-xs-3 control-label"><span style="color: red">* </span>性别</label>
+                                    <div class="col-xs-9">
+                                        <p class="form-control-static">男</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="region" class="col-xs-3 control-label">国家/地区</label>
+                                    <div class="col-xs-9">
+                                        <p class="form-control-static">中国 CHINA</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ID_type" class="col-xs-3 control-label"><span style="color: red">* </span>证件类型</label>
+                                    <div class="col-xs-9">
+                                        <p class="form-control-static">二代身份证</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ID_number" class="col-xs-3 control-label"><span style="color: red">* </span>证件号码</label>
+                                    <div class="col-xs-9">
+                                        <p class="form-control-static">******************</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="born_date" class="col-xs-3 control-label">出生日期</label>
+                                    <div class="col-xs-9">
+                                        <ip class="form-control-static">1997-04-13</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="check_status" class="col-xs-3 control-label">核验状态</label>
+                                    <div class="col-xs-9">
+                                        <p class="form-control-static" style="color :blue">已通过</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <button id="info_btn" class="btn btn-info pull-right" data-toggle="on">修改信息</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.18.1/moment-with-locales.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $(".form-datetime").datetimepicker({
+            format: 'YYYY-MM-DD',
+            locale: 'zh-CN'
+        });
+        $('#info_btn').click(function() {
+            if (this.getAttribute('data-toggle') == 'on') {
+                this.innerHTML = '放弃修改';
+                $(this).removeClass('btn-info').addClass('btn-warning').attr('data-toggle', 'off');
+                $('#info_plain').attr('style', 'display : none');
+                $('#info_form').attr('style', 'display : block');
+
+            } else if (this.getAttribute('data-toggle') == 'off') {
+                this.innerHTML = '修改信息';
+                $(this).removeClass('btn-warning').addClass('btn-info').attr('data-toggle', 'on');
+                $('#info_form').attr('style', 'display : none');
+                $('#info_plain').attr('style', 'display : block');
+            }
+        })
+    })
+    </script>
+</body>
+
+</html>
+<!--
+                            <span class="label">用户名: </span><span>张逸清</span>
+                            <span class="label">性别： </span><span>男</span>
+                            <span class="label">国家/地区：</span><span>中国CHINA</span>
+                            <span class="label">证件类型：</span><span>二代身份证</span>
+                            <span class="label">证件号码：</span><span>310103199704137039</span>
+                            <span class="label">出生日期：</span><span>1997-04-13</span>
+                            <span class="label">核验状态：</span><span>已通过</span>-->

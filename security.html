@@ -9,7 +9,6 @@
     <title>用户中心</title>
     <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,8 +17,14 @@
     <![endif]-->
     <style type="text/css">
     li.active {
-        background-color: #FA10;
+        background-color: #eee;
         border-left: 2px solid #091FF5;
+    }
+    
+    th,
+    .table>tbody>tr>td {
+        text-align: center;
+        vertical-align: middle;
     }
     </style>
 </head>
@@ -47,11 +52,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="user/#pending_order.html">未完成订单</a></li>
-                            <li><a href="user/#finished_order.html">已完成订单</a></li>
+                            <li><a href="./pending.html">未完成订单</a></li>
+                            <li><a href="./finished.html">已完成订单</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="user/#person_info.html">查看个人信息</a></li>
-                            <li><a href="user/#account_security.html">账户安全管理</a></li>
+                            <li><a href="./info.html">查看个人信息</a></li>
+                            <li><a href="./security.html">账户安全管理</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -64,60 +69,61 @@
         <div class="row clearfix">
             <div class="col-xs-3 column">
                 <div class="panel-group">
-                    <div class="panel panel-info">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             订单管理
                         </div>
-                        <ul class="nav nav-stacked ">
-                            <li role="presentation"><a href="#pending" aria-controls="profile" role="tab" data-toggle="tab" style="color: black">未完成订单</a></li>
-                            <li role="presentation"><a href="#finished" aria-controls="profile" role="tab" data-toggle="tab" style="color: black">已完成订单</a></li>
-                            <li class="panel-info">
-                                <div class=" panel-heading">
+                        <ul class="nav nav-stacked">
+                            <li role="presentation"><a href="./pending.html" style="color: black">未完成订单</a></li>
+                            <li role="presentation"><a href="./finished.html" style="color: black">已完成订单</a></li>
+                            <li class="panel-primary">
+                                <div class="panel-heading">
                                     个人信息
                                 </div>
                             </li>
-                            <li role="presentation"><a href="#info" aria-controls="profile" role="tab" data-toggle="tab" style="color: black">查看个人信息</a></li>
-                            <li role="presentation"><a href="#account" aria-controls="profile" role="tab" data-toggle="tab" style="color: black">账户安全管理</a></li>
+                            <li role="presentation"><a href="./info.html" style="color: black">查看个人信息</a></li>
+                            <li role="presentation" class="active"><a href="./security.html" style="color: black">账户安全管理</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-9 column">
-                <div class="tab-content" style="padding-right: 10px">
-                    <div class="tab-pane fade active in" id="pending">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                未完成订单
-                            </div>
-                            <div class="panel-body">
-                            </div>
-                        </div>
+            <div class="col-xs-9 column" style="padding-right: 16px">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        账户安全管理
                     </div>
-                    <div class="tab-pane fade" id="finished">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                已完成订单
+                    <div class="panel-body">
+                        <div class="col-xs-3"></div>
+                        <div class="col-xs-6">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="old_password" class="col-xs-3 control-label"><span style="color: red">* </span>旧密码</label>
+                                    <div class="col-xs-9">
+                                        <input type="password" class="form-control" placeholder="请输入旧密码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="new_password" class="col-xs-3 control-label"><span style="color: red">* </span>新密码</label>
+                                    <div class="col-xs-9">
+                                        <input type="password" class="form-control" placeholder="请输入新密码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm_password" class="col-xs-3 control-label"><span style="color: red">* </span>确认密码</label>
+                                    <div class="col-xs-9">
+                                        <input type="password" class="form-control" placeholder="请再次输入新密码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-info btn-block center-block" style="width:40%">提交修改</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="info">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                查看个人信息
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="account">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                账户安全管理
-                            </div>
-                        </div>
+                        <div class="col-xs-3"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
