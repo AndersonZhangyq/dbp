@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>订购车票</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./index.html"><img src="./logo.png" class="navbar-brand"/></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./book.html">订购车票</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="./login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                <li><a href="./register.html"><span class="glyphicon glyphicon-registration-mark"></span> 注册</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-5 column">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            车票查询
+                        </div>
+                        <div class="panel-body">
+                            <div style="padding-left: 5px;padding-right: 5px">
+                                <label class="radio-inline">
+                                    <input type="radio" name="travel_type" id="single_ratio" value="1" checked> 单程
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="travel_type" id="double_ratio" value="2"> 往返
+                                </label>
+                                <hr style="border-top: 1px solid #337ab7; margin-top: 10px; margin-bottom: 15px"/>
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="departure" class="col-xs-2 control-label">出发地</label>
+                                        <div class="col-xs-10">
+                                            <input type="text" class="form-control" id="departure" placeholder="出发地">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="arrival" class="col-xs-2 control-label">目的地</label>
+                                        <div class="col-xs-10">
+                                            <input type="text" class="form-control" id="arrival" placeholder="目的地">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-top: 20px">
+                                        <label for="departure_time" class="col-xs-2 control-label">出发日</label>
+                                        <div class="col-xs-10">
+                                            <input type="text" class="form-control" id="departure_time"
+                                                   placeholder="出发时间">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="arrival_time" class="col-xs-2 control-label">到达日</label>
+                                        <div class="col-xs-10">
+                                            <input type="text" class="form-control" id="arrival_time"
+                                                   placeholder="到达时间">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-warning center-block"
+                                            style="width: 50%; margin-top: 20px">查询
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            出行向导
+                        </div>
+                        <div class="panel-body"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-7 column">
+            <div class="tabbable">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active">
+                        <a href="#news" data-toggle="tab">新闻资讯</a>
+                    </li>
+                    <li>
+                        <a href="#changes" data-toggle="tab">最新动态</a>
+                    </li>
+                    <li>
+                        <a href="#problems" data-toggle="tab">常见问题</a>
+                    </li>
+                    <li>
+                        <a href="#attentions" data-toggle="tab">使用须知</a>
+                    </li>
+                </ul>
+                <div class="tab-content" style="margin-top: 20px">
+                    <div class="tab-pane fade active in" id="news" style="vertical-align: middle">
+                        等待开发
+                    </div>
+                    <div class="tab-pane fade" id="changes" style="vertical-align: middle">
+                        等待开发
+                    </div>
+                    <div class="tab-pane fade" id="problems" style="vertical-align: middle">
+                        等待开发
+                    </div>
+                    <div class="tab-pane fade" id="attentions" style="vertical-align: middle">
+                        等待开发
+                    </div>
+                </div>
+                <div class="col-xs-4 column">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- row -->
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
