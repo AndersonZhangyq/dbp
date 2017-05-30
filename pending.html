@@ -9,7 +9,6 @@
     <title>用户中心</title>
     <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,6 +19,13 @@
     li.active {
         background-color: #eee;
         border-left: 2px solid #091FF5;
+    }
+    
+    .table>thead>tr>th>ul,
+    .table>tbody>tr>td>ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 0;
     }
     
     th,
@@ -60,6 +66,7 @@
                             <li><a href="./security.html">账户安全管理</a></li>
                         </ul>
                     </li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>注销</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -124,31 +131,31 @@
                                 <tr>
                                     <td>1</td>
                                     <td>
-                                        <ul style="list-style-type: none; padding-left: 0px">
+                                        <ul>
                                             <li>2017-04-08 16:18 开</li>
                                             <li>D7355 上海 &rarr; 北京</li>
                                         </ul>
                                     </td>
                                     <td>
-                                        <ul style="list-style-type: none; padding-left: 0px">
+                                        <ul>
                                             <li>06车厢</li>
                                             <li>15C号</li>
                                             <li>二等座</li>
                                         </ul>
                                     </td>
                                     <td>
-                                        <ul style="list-style-type: none; padding-left: 0px">
+                                        <ul>
                                             <li>张逸清</li>
                                             <li>二代身份证</li>
                                         </ul>
                                     </td>
                                     <td>
-                                        <ul style="list-style-type: none; padding-left: 0px">
+                                        <ul>
                                             <li>成人票</li>
                                             <li>100 元</li>
                                         </ul>
                                     </td>
-                                    <td>待出行</td>
+                                    <td>待支付</td>
                                 </tr>
                             </table>
                             <!-- Table -->

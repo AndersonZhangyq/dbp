@@ -9,7 +9,6 @@
     <title>用户中心</title>
     <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -21,7 +20,7 @@
         background-color: #eee;
         border-left: 2px solid #091FF5;
     }
-
+    
     .table>thead>tr>th>ul,
     .table>tbody>tr>td>ul {
         list-style-type: none;
@@ -29,10 +28,19 @@
         margin-bottom: 0;
     }
     
+    ul.nav-justified {
+        margin-bottom: 0;
+        padding-left: 15px;
+    }
+    
     th,
     .table>tbody>tr>td {
         text-align: center;
         vertical-align: middle;
+    }
+
+    .ticket_price{
+        color: #fb7403
     }
     </style>
 </head>
@@ -76,95 +84,81 @@
     </nav>
     <div class="container">
         <div class="row clearfix">
-            <div class="col-xs-3 column">
-                <div class="panel-group">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            订单管理
-                        </div>
-                        <ul class="nav nav-stacked">
-                            <li role="presentation"><a href="./pending.html" style="color: black">未完成订单</a></li>
-                            <li role="presentation" class="active"><a href="./finished.html" style="color: black">已完成订单</a></li>
-                            <li class="panel-primary">
-                                <div class="panel-heading">
-                                    个人信息
-                                </div>
-                            </li>
-                            <li role="presentation"><a href="./info.html" style="color: black">查看个人信息</a></li>
-                            <li role="presentation"><a href="./security.html" style="color: black">账户安全管理</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-9 column" style="padding-right: 16px">
+            <div class="col-xs-12 column">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        已完成订单
+                        列车信息
+                    </div>
+                    <div class="panel-body" style="background-color: #eef1f8">
+                        <ul class="nav-justified">
+                            <li>
+                                <h4><strong>2017-04-07&nbsp;&nbsp;&nbsp;&nbsp;D1023 次</strong></h4></li>
+                            <li>
+                                <h4><strong>上海站 &rarr; 北京站</strong></h4></li>
+                            <li>
+                                <h4>发车时间：<strong>2017-04-07 16:18</strong></h4></li>
+                            <li>
+                                <h4>到达时间：<strong>2017-04-07 16:18</strong></h4></li>
+                        </ul>
+                        <div class="col-xs-2">
+                            <span>一等座（</span><span class="ticket_price">165.0</span><span>）元</span>
+                        </div>
+                        <div class="col-xs-2">
+                            <span>二等座（</span><span class="ticket_price">103.0</span><span>）元</span>
+                        </div>
+                        <div class="col-xs-2">
+                            <span>无座（</span><span class="ticket_price">103.0</span><span>）元</span>
+                        </div>
+                        <div class="col-xs-6"></div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        列车信息
                     </div>
                     <div class="panel-body">
-                        <div class="panel panel-info">
+                        <div class="panel panel-info" style="margin-bottom: 40px">
                             <!-- Default panel contents -->
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        订票时间：2017-04-07
-                                    </div>
-                                    <div class="col-xs-2">
-                                        张逸清
-                                    </div>
-                                    <div class="col-xs-3">
-                                        上海 &rarr; 北京
-                                    </div>
-                                    <div class="col-xs-4 text-right">
-                                        乘车时间：2017-04-08 16:18
-                                    </div>
-                                </div>
-                            </div>
-                            <table class="table">
-                                <tr>
-                                    <th>序号</th>
-                                    <th>车次信息</th>
-                                    <th>席位信息</th>
-                                    <th>乘客信息</th>
-                                    <th>票款金额</th>
-                                    <th>车票状态</th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>
-                                        <ul>
-                                            <li>2017-04-08 16:18 开</li>
-                                            <li>D7355 上海 &rarr; 北京</li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            <li>06车厢</li>
-                                            <li>15C号</li>
-                                            <li>二等座</li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            <li>张逸清</li>
-                                            <li>二代身份证</li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            <li>成人票</li>
-                                            <li>100 元</li>
-                                        </ul>
-                                    </td>
-                                    <td>待出行</td>
-                                </tr>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>席别</th>
+                                        <th>票种</th>
+                                        <th>姓名</th>
+                                        <th>证件类型</th>
+                                        <th>证件号码</th>
+                                        <th>手机号</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>二等座</td>
+                                        <td>成人票</td>
+                                        <td>张逸清</td>
+                                        <td>二代身份证</td>
+                                        <td>******************</td>
+                                        <td>***********</td>
+                                    </tr>
+                                </tbody>
                             </table>
                             <!-- Table -->
                         </div>
+                        <hr style="border-top: 1px solid #337ab7; margin-top: 10px; margin-bottom: 15px">
+                        <div class="pager">
+                            <button class="btn btn-group">取消订单</button>
+                            <button class="btn btn-group btn-warning">网上支付</button>
+                        </div>
                     </div>
+                </div>
+                <div class="well well-sm" style="background-color: #fffbe5;border:2px dotted #fbd800">
+                    <h4><b>温馨提示：</b></h4>
+                    <p>1. 同一乘车日期，同一车次，一张有效身份证件只能购买一张车票，高铁动卧列车除外。</p>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
