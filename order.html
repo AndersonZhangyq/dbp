@@ -38,9 +38,19 @@
         text-align: center;
         vertical-align: middle;
     }
-
-    .ticket_price{
+    
+    .ticket_price {
         color: #fb7403
+    }
+    
+    .btn-circle {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        padding: 6px 0;
+        font-size: 12px;
+        line-height: 1.428571429;
+        border-radius: 15px;
     }
     </style>
 </head>
@@ -117,7 +127,7 @@
                         列车信息
                     </div>
                     <div class="panel-body">
-                        <div class="panel panel-info" style="margin-bottom: 40px">
+                        <div class="panel panel-info">
                             <!-- Default panel contents -->
                             <table class="table table-striped">
                                 <thead>
@@ -132,19 +142,37 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr class="ticket_row">
                                         <td>1</td>
-                                        <td>二等座</td>
-                                        <td>成人票</td>
-                                        <td>张逸清</td>
+                                        <td>
+                                            <select class="form-control" id="seat_type" name="seat_type">
+                                                <option value="level_one">一等座 165.0</option>
+                                                <option value="level_two">二等座 103.0</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="ticket_type" name="ticket_type">
+                                                <option value="adult">成人票</option>
+                                                <option value="child">儿童票</option>
+                                                <option value="student">学生票</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="text" name="user_name">
+                                        </td>
                                         <td>二代身份证</td>
-                                        <td>******************</td>
-                                        <td>***********</td>
+                                        <td>
+                                            <input class="form-control" type="text" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="text" name="phone_number">
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <!-- Table -->
                         </div>
+                        <button type="button" class="btn btn-default btn-circle" id="add_btn"><span class="glyphicon glyphicon-plus"></span></button>
                         <hr style="border-top: 1px solid #337ab7; margin-top: 10px; margin-bottom: 15px">
                         <div class="pager">
                             <button class="btn btn-group">取消订单</button>
@@ -165,6 +193,19 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    var ticket_row_origin;
+    window.onload=function(){
+        ticket_row_origin = document.querySelector("tr.ticket_row").cloneNode(true);
+    }
+    document.getElementById("add_btn").onclick = function() {
+        var ticket_row_parent = document.querySelector("tr.ticket_row").parentNode;
+        var new_row = ticket_row_origin.cloneNode(true);
+        new_row.children[0].innerHTML =
+            Number(ticket_row_parent.lastElementChild.children[0].innerHTML) + 1;
+        ticket_row_parent.appendChild(new_row);
+    }
+    </script>
 </body>
 
 </html>
