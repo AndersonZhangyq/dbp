@@ -35,10 +35,6 @@
         vertical-align: middle;
         color: white;
     }
-    
-    .form-control[readonly]{
-    	background-color:white;
-    }
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING:Respond.js doesn't work if you view the page via file:// -->
@@ -94,7 +90,6 @@
                                     </label>
                                 </div>
                             </div>
-                            <form>
                             <div class="col-xs-9" style="height: 65px">
                                 <div class="row" style="padding-top: 15px; padding-right: 15px">
                                     <div class="col-xs-3" style="padding-right: 0">
@@ -107,11 +102,11 @@
                                     </div>
                                     <div class="col-xs-3" style="padding-right: 0">
                                         <label for="departure_time">出发日</label>
-                                        <input type="text" class="form-control" id="departure_time" placeholder="出发时间" style="width:150px; display: inline" readonly>
+                                        <input type="text" class="form-control" id="departure_time" placeholder="出发时间" style="width:150px; display: inline">
                                     </div>
                                     <div class="col-xs-3" style="padding-right: 0">
                                         <label for="arrival_time">返程日</label>
-                                        <input type="text" class="form-control" id="return_time" placeholder="到达时间" style="width:150px; display: inline" disabled>
+                                        <input type="text" class="form-control" id="return_time" placeholder="到达时间" style="width:150px; display: inline">
                                     </div>
                                 </div>
                             </div>
@@ -126,10 +121,9 @@
                                         <input type="radio" name="ticket_type" value="student"> 学生
                                     </label>
                                 </div>
-                                <button type="submit" class="btn btn-warning btn-block center-block" style="width: 80%">查询
+                                <button type="button" class="btn btn-warning btn-block center-block" style="width: 80%">查询
                                 </button>
                             </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -194,23 +188,12 @@
     $(function() {
         $("#departure_time").datetimepicker({
             format: 'YYYY-MM-DD',
-            locale: 'zh-CN',
-            ignoreReadonly: true
+            locale: 'zh-CN'
         });
         $("#return_time").datetimepicker({
             format: 'YYYY-MM-DD',
-            locale: 'zh-CN',
-            ignoreReadonly: true
+            locale: 'zh-CN'
         });
-        $( "input[name='travel_type']" ).on( "click", function() {
-  			if (this.value == 'single' && $(this).prop('checked')){
-	  			$("#return_time").prop('disabled',true).prop('readonly',false);
-	  			$("#return_time").val('');
-  			}
-  			if (this.value == 'double' && $(this).prop('checked')){
-  				$("#return_time").prop('disabled',false).prop('readonly',true);	
-  			}
-		});
     });
     </script>
 </body>

@@ -1,3 +1,9 @@
+<%@ page language="java" import="java.util.*, java.sql.*, java.text.ParseException, java.text.SimpleDateFormat,com.db.Run" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -34,10 +40,6 @@
         text-align: center;
         vertical-align: middle;
         color: white;
-    }
-    
-    .form-control[readonly]{
-    	background-color:white;
     }
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -94,24 +96,24 @@
                                     </label>
                                 </div>
                             </div>
-                            <form>
+                            <form action="Search" method="POST">
                             <div class="col-xs-9" style="height: 65px">
                                 <div class="row" style="padding-top: 15px; padding-right: 15px">
                                     <div class="col-xs-3" style="padding-right: 0">
                                         <label for="departure" class="control-label">出发地</label>
-                                        <input type="text" class="form-control" id="departure" placeholder="出发地" style="width:150px; display: inline">
+                                        <input type="text" class="form-control" id="departure" name="departure" placeholder="出发地" style="width:150px; display: inline">
                                     </div>
                                     <div class="col-xs-3" style="padding-right: 0">
                                         <label for="arrival">目的地</label>
-                                        <input type="text" class="form-control" id="arrival" placeholder="目的地" style="width:150px; display: inline">
+                                        <input type="text" class="form-control" id="arrival" name="arrival" placeholder="目的地" style="width:150px; display: inline">
                                     </div>
                                     <div class="col-xs-3" style="padding-right: 0">
                                         <label for="departure_time">出发日</label>
-                                        <input type="text" class="form-control" id="departure_time" placeholder="出发时间" style="width:150px; display: inline" readonly>
+                                        <input type="text" class="form-control" id="departure_time" name="departure_time" placeholder="出发时间" style="width:150px; display: inline">
                                     </div>
                                     <div class="col-xs-3" style="padding-right: 0">
                                         <label for="arrival_time">返程日</label>
-                                        <input type="text" class="form-control" id="return_time" placeholder="到达时间" style="width:150px; display: inline" disabled>
+                                        <input type="text" class="form-control" id="return_time" placeholder="到达时间" style="width:150px; display: inline">
                                     </div>
                                 </div>
                             </div>
@@ -160,27 +162,48 @@
                             <th>操作</th>
                         </tr>
                     </thead>
+                    <%
+                    	ArrayList tripList = (ArrayList)request.getAttribute("tripList");
+                                                            if (tripList != null) {
+                                                            	Run trip = null;
+                    %>
                     <tbody>
+                    <%
+                    	for (int i = 0; i < tripList.size(); ++i) {
+                                                            		trip = (Run)tripList.get(i);
+                    %>
                         <tr>
-                            <td>车次</td>
+                            <td><%=trip.getTrainID() %></td>
                             <td>
                                 <ul>
-                                    <li>上海</li>
-                                    <li>北京</li>
+                                    <li><%=session.getAttribute("departure") %></li>
+                                    <li><%=session.getAttribute("arrival") %></li>
                                 </ul>
                             </td>
                             <td>
                                 <ul>
-                                    <li>11:30</li>
-                                    <li style="color: grey">17:30</li>
+                                    <li><%=trip.getDepartureTime() %></li>
+                                    <li style="color: grey"><%=trip.getArrivalTime() %></li>
                                 </ul>
                             </td>
-                            <td>5小时</td>
-                            <td>一等座</td>
-                            <td>二等座</td>
+                            <!-- <td><%=new SimpleDateFormat("hh:mm:ss").format(new java.util.Date((trip.getArrivalTime().getTime() - trip.getDepartureTime().getTime()))) %></td> -->
+                            <% 
+                            	long time_diff = trip.getArrivalTime().getTime() - trip.getDepartureTime().getTime();
+                            	SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
+                            	time.setTimeZone(TimeZone.getTimeZone("GMT+0"));
+                            %>
+                            <td><%=time.format(time_diff) %></td>
+                            <td><%="¥" + trip.getStationNum() * 50 %></td>
+                            <td><%="¥" + trip.getStationNum() * 30 %></td>
                             <td><button type="submit" class="btn btn-warning">预定</button></td>
                         </tr>
+                    <% 
+                    	}
+                    %>
                     </tbody>
+                    <% 
+                    }
+                    %>
             </div>
         </div>
     </div>
@@ -194,23 +217,12 @@
     $(function() {
         $("#departure_time").datetimepicker({
             format: 'YYYY-MM-DD',
-            locale: 'zh-CN',
-            ignoreReadonly: true
+            locale: 'zh-CN'
         });
         $("#return_time").datetimepicker({
             format: 'YYYY-MM-DD',
-            locale: 'zh-CN',
-            ignoreReadonly: true
+            locale: 'zh-CN'
         });
-        $( "input[name='travel_type']" ).on( "click", function() {
-  			if (this.value == 'single' && $(this).prop('checked')){
-	  			$("#return_time").prop('disabled',true).prop('readonly',false);
-	  			$("#return_time").val('');
-  			}
-  			if (this.value == 'double' && $(this).prop('checked')){
-  				$("#return_time").prop('disabled',false).prop('readonly',true);	
-  			}
-		});
     });
     </script>
 </body>

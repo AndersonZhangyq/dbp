@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>用户中心</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    li.active {
+        background-color: #eee;
+        border-left: 2px solid #091FF5;
+    }
+    
+    .table>thead>tr>th>ul,
+    .table>tbody>tr>td>ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+    
+    ul.nav-justified {
+        margin-bottom: 0;
+        padding-left: 25px;
+    }
+    
+    th,
+    .table>tbody>tr>td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="./index.html"><img src="./logo.png" class="navbar-brand" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a href="./book.html">订购车票</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./pending.html">未完成订单</a></li>
+                            <li><a href="./finished.html">已完成订单</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="./info.html">查看个人信息</a></li>
+                            <li><a href="./security.html">账户安全管理</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>注销</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-xs-12 column">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        订单详情
+                    </div>
+                    <div class="panel-body">
+                        <div class="panel panel-info" style="margin-bottom: 40px">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading" style="padding-bottom: 0; padding-top: 0">
+                                <div class="row">
+                                    <ul class="nav-justified">
+                                        <li>
+                                            <h4><strong>2017-04-07&nbsp;&nbsp;&nbsp;&nbsp;D1023 次</strong></h4></li>
+                                        <li>
+                                            <h4><strong>上海站 &rarr; 北京站</strong></h4></li>
+                                        <li>
+                                            <h4>发车时间：<strong>2017-04-07 16:18</strong></h4></li>
+                                        <li>
+                                            <h4>到达时间：<strong>2017-04-07 16:18</strong></h4></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>姓名</th>
+                                        <th>证件类型</th>
+                                        <th>证件号码</th>
+                                        <th>票种</th>
+                                        <th>席别</th>
+                                        <th>车厢</th>
+                                        <th>席位号</th>
+                                        <th>票价（元）</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>张逸清</td>
+                                        <td>二代身份证</td>
+                                        <td>******************</td>
+                                        <td>成人票</td>
+                                        <td>二等座</td>
+                                        <td>06</td>
+                                        <td>15C</td>
+                                        <td>100.0元</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Table -->
+                        </div>
+                        <hr style="border-top: 1px solid #337ab7; margin-top: 10px; margin-bottom: 15px">
+                        <div class="pager">
+                            <button class="btn btn-group">取消订单</button>
+                            <button class="btn btn-group btn-warning">网上支付</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="well well-sm" style="background-color: #fffbe5;border:2px dotted #fbd800">
+                <h4><b>温馨提示：</b></h4>
+                <p>1. 同一乘车日期，同一车次，一张有效身份证件只能购买一张车票，高铁动卧列车除外。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
