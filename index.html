@@ -9,13 +9,18 @@
     <title>订购车票</title>
     <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+    .form-control[readonly]{
+    	background-color:white;
+    }
+    </style>
 </head>
 
 <body>
@@ -36,7 +41,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="./index.html">首页</a></li>
-                <li><a href="./book.html">订购车票</a></li>
+                <li><a href="./book.jsp">订购车票</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="./login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
@@ -59,37 +64,37 @@
                         <div class="panel-body">
                             <div style="padding-left: 5px;padding-right: 5px">
                                 <label class="radio-inline">
-                                    <input type="radio" name="travel_type" id="single_ratio" value="1" checked> 单程
+                                    <input type="radio" name="travel_type" id="single_ratio" value="single" checked> 单程
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="travel_type" id="double_ratio" value="2"> 往返
+                                    <input type="radio" name="travel_type" id="double_ratio" value="double"> 往返
                                 </label>
                                 <hr style="border-top: 1px solid #337ab7; margin-top: 10px; margin-bottom: 15px"/>
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" action="Search" method="POST">
                                     <div class="form-group">
                                         <label for="departure" class="col-xs-2 control-label">出发地</label>
                                         <div class="col-xs-10">
-                                            <input type="text" class="form-control" id="departure" placeholder="出发地">
+                                            <input type="text" class="form-control" id="departure" name="departure" placeholder="出发地">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="arrival" class="col-xs-2 control-label">目的地</label>
                                         <div class="col-xs-10">
-                                            <input type="text" class="form-control" id="arrival" placeholder="目的地">
+                                            <input type="text" class="form-control" id="arrival" name = "arrival" placeholder="目的地">
                                         </div>
                                     </div>
                                     <div class="form-group" style="margin-top: 20px">
                                         <label for="departure_time" class="col-xs-2 control-label">出发日</label>
                                         <div class="col-xs-10">
-                                            <input type="text" class="form-control" id="departure_time"
-                                                   placeholder="出发时间">
+                                            <input type="text" class="form-control" id="departure_time" name="departure_time"
+                                                   placeholder="出发时间" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="arrival_time" class="col-xs-2 control-label">到达日</label>
+                                        <label for="arrival_time" class="col-xs-2 control-label">返程日</label>
                                         <div class="col-xs-10">
-                                            <input type="text" class="form-control" id="arrival_time"
-                                                   placeholder="到达时间">
+                                            <input type="text" class="form-control" id="return_time"
+                                                   placeholder="返程时间" disabled>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-warning center-block"
@@ -153,6 +158,31 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="https://cdn.bootcss.com/moment.js/2.18.1/moment-with-locales.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $("#departure_time").datetimepicker({
+            format: 'YYYY-MM-DD',
+            locale: 'zh-CN',
+            ignoreReadonly: true
+        });
+        $("#return_time").datetimepicker({
+            format: 'YYYY-MM-DD',
+            locale: 'zh-CN',
+            ignoreReadonly: true
+        });
+    });
+    $( "input[name='travel_type']" ).on( "click", function() {
+  		if (this.value == 'single' && $(this).prop('checked')){
+  			$("#return_time").prop('disabled',true).prop('readonly',false);
+  			$("#return_time").val('');
+  		}
+  		if (this.value == 'double' && $(this).prop('checked')){
+  			$("#return_time").prop('disabled',false).prop('readonly',true);
+  		}
+	});
+    </script>
 </body>
 
 </html>

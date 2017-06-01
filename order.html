@@ -134,13 +134,16 @@
                                     <tr>
                                         <th>序号</th>
                                         <th>席别</th>
+                                        <th>席号</th>
                                         <th>票种</th>
                                         <th>姓名</th>
                                         <th>证件类型</th>
                                         <th>证件号码</th>
                                         <th>手机号</th>
+                                        <th>&nbsp;</th>
                                     </tr>
                                 </thead>
+                                
                                 <tbody>
                                     <tr class="ticket_row">
                                         <td>1</td>
@@ -151,21 +154,33 @@
                                             </select>
                                         </td>
                                         <td>
+                                            <select class="form-control" id="seat_place" name="seat_place">
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                                <option value="D">D</option>
+                                                <option value="F">F</option>
+                                            </select>
+                                        </td>
+                                        <td>
                                             <select class="form-control" id="ticket_type" name="ticket_type">
                                                 <option value="adult">成人票</option>
                                                 <option value="child">儿童票</option>
                                                 <option value="student">学生票</option>
                                             </select>
                                         </td>
-                                        <td>
+                                        <td class="col-xs-2">
                                             <input class="form-control" type="text" name="user_name">
                                         </td>
                                         <td>二代身份证</td>
                                         <td>
                                             <input class="form-control" type="text" disabled>
                                         </td>
-                                        <td>
+                                        <td class="col-xs-2">
                                             <input class="form-control" type="text" name="phone_number">
+                                        </td>
+                                        <td>
+                                        	<button type="button" class="btn btn-default btn-circle" onclick="remove_row(this)"><span class="glyphicon glyphicon-remove"></span></button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -176,7 +191,7 @@
                         <hr style="border-top: 1px solid #337ab7; margin-top: 10px; margin-bottom: 15px">
                         <div class="pager">
                             <button class="btn btn-group">取消订单</button>
-                            <button class="btn btn-group btn-warning">网上支付</button>
+                            <button class="btn btn-group btn-warning">提交订单</button>
                         </div>
                     </div>
                 </div>
@@ -204,6 +219,12 @@
         new_row.children[0].innerHTML =
             Number(ticket_row_parent.lastElementChild.children[0].innerHTML) + 1;
         ticket_row_parent.appendChild(new_row);
+    }
+    function remove_row (_this){
+    	var _this_row = _this.parentElement.parentElement;
+    	if (_this_row.firstElementChild.innerHTML != 1)
+    		_this_row.remove();
+    	
     }
     </script>
 </body>
