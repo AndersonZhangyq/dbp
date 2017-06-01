@@ -9,6 +9,8 @@
     <title>用户中心</title>
     <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/awesome-bootstrap-checkbox/1.0.0-alpha.5/awesome-bootstrap-checkbox.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -127,79 +129,83 @@
                         列车信息
                     </div>
                     <div class="panel-body">
-                    	<form>
-                        <div class="panel panel-info">
-                            <!-- Default panel contents -->
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>序号</th>
-                                        <th>席别</th>
-                                        <th>席号</th>
-                                        <th>票种</th>
-                                        <th>姓名</th>
-                                        <th>证件类型</th>
-                                        <th>证件号码</th>
-                                        <th>手机号</th>
-                                        <th>&nbsp;</th>
-                                    </tr>
-                                </thead>
-                                
-                                <tbody>
-                                    <tr class="ticket_row">
-                                        <td>1</td>
-                                        <td>
-                                            <select class="form-control" id="seat_type" name="seat_type">
-                                                <option value="level_one">一等座 165.0</option>
-                                                <option value="level_two">二等座 103.0</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <select class="form-control" id="seat_place" name="seat_place">
-                                                <option value="A">A</option>
-                                                <option value="B">B</option>
-                                                <option value="C">C</option>
-                                                <option value="D">D</option>
-                                                <option value="F">F</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <select class="form-control" id="ticket_type" name="ticket_type">
-                                                <option value="adult">成人票</option>
-                                                <option value="child">儿童票</option>
-                                                <option value="student">学生票</option>
-                                            </select>
-                                        </td>
-                                        <td class="col-xs-2">
-                                            <input class="form-control" type="text" name="user_name">
-                                        </td class="col-xs-2">
-                                        <td>二代身份证</td>
-                                        <td>
-                                            <input class="form-control" type="text" disabled>
-                                        </td>
-                                        <td class="col-xs-2">
-                                            <input class="form-control" type="text" name="phone_number">
-                                        </td>
-                                        <td>
-                                        	<button type="button" class="btn btn-default btn-circle" onclick="remove_row(this)"><span class="glyphicon glyphicon-remove"></span></button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!-- Table -->
-                        </div>
-                        <button type="button" class="btn btn-default btn-circle" id="add_btn"><span class="glyphicon glyphicon-plus"></span></button>
-                        <hr style="border-top: 1px solid #337ab7; margin-top: 10px; margin-bottom: 15px">
-                        <div class="pager">
-                            <button class="btn btn-group">取消订单</button>
-                            <button class="btn btn-group btn-warning">提交订单</button>
-                        </div>
-                      </form>
+                        <form>
+                            <div class="panel panel-info">
+                                <!-- Default panel contents -->
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>序号</th>
+                                            <th>席别</th>
+                                            <th>席号</th>
+                                            <th>票种</th>
+                                            <th>姓名</th>
+                                            <th>证件类型</th>
+                                            <th>证件号码</th>
+                                            <th>手机号</th>
+                                            <th>&nbsp;</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="ticket_row">
+                                            <td>1</td>
+                                            <td>
+                                                <select class="form-control" id="seat_type" name="seat_type">
+                                                    <option value="level_one">一等座 165.0</option>
+                                                    <option value="level_two">二等座 103.0</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-control" id="seat_place" name="seat_place">
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
+                                                    <option value="F">F</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-control" id="ticket_type" name="ticket_type">
+                                                    <option value="adult">成人票</option>
+                                                    <option value="child">儿童票</option>
+                                                    <option value="student">学生票</option>
+                                                </select>
+                                            </td>
+                                            <td class="col-xs-2">
+                                                <input class="form-control" type="text" name="user_name">
+                                            </td class="col-xs-2">
+                                            <td>二代身份证</td>
+                                            <td>
+                                                <input class="form-control" type="text" disabled>
+                                            </td>
+                                            <td class="col-xs-2">
+                                                <input class="form-control" type="text" name="phone_number">
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-default btn-circle" onclick="remove_row(this)"><span class="glyphicon glyphicon-remove"></span></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- Table -->
+                            </div>
+                            <a role="button" type="button" class="btn btn-default btn-circle" id="add_btn"><span class="glyphicon glyphicon-plus"></span></a>
+                            <div class="checkbox abc-checkbox abc-checkbox-info pull-right">
+                                <input type="checkbox" id="even_only" name="even_only" class="styled">
+                                <label for="even_only">只要连票</label>
+                            </div>
+                            <hr style="border-top: 1px solid #337ab7; margin-top: 10px; margin-bottom: 15px">
+                            <div class="pager">
+                                <button class="btn btn-group">取消订单</button>
+                                <button class="btn btn-group btn-warning">提交订单</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="well well-sm" style="background-color: #fffbe5;border:2px dotted #fbd800">
                     <h4><b>温馨提示：</b></h4>
                     <p>1. 同一乘车日期，同一车次，一张有效身份证件只能购买一张车票，高铁动卧列车除外。</p>
+                    <p>2. 单次购票，上限为 5 张。</p>
                 </div>
             </div>
         </div>
@@ -212,21 +218,24 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
     var ticket_row_origin;
-    window.onload=function(){
+    window.onload = function() {
         ticket_row_origin = document.querySelector("tr.ticket_row").cloneNode(true);
     }
     document.getElementById("add_btn").onclick = function() {
         var ticket_row_parent = document.querySelector("tr.ticket_row").parentNode;
         var new_row = ticket_row_origin.cloneNode(true);
-        new_row.children[0].innerHTML =
-            Number(ticket_row_parent.lastElementChild.children[0].innerHTML) + 1;
-        ticket_row_parent.appendChild(new_row);
+        var xth_row = Number(ticket_row_parent.lastElementChild.children[0].innerHTML) + 1;
+        if (ticket_row_parent.childElementCount < 5) {
+            new_row.children[0].innerHTML = xth_row;
+            ticket_row_parent.appendChild(new_row);
+        }
     }
-    function remove_row (_this){
-    	var _this_row = _this.parentElement.parentElement;
-    	if (_this_row.firstElementChild.innerHTML != 1)
-    		_this_row.remove();
-    	
+
+    function remove_row(_this) {
+        var _this_row = _this.parentElement.parentElement;
+        if (_this_row.firstElementChild.innerHTML != 1)
+            _this_row.remove();
+
     }
     </script>
 </body>
